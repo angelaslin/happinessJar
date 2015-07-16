@@ -14,14 +14,11 @@ function getRandomMessage() {
 }
 
 function renderMessage(message) {
-    console.log(document)
-    console.log(document.getElementById("message"))
     document.getElementById("message").textContent = message;
 }
 
 function addThought() {
     $("#addMessage").show();
-    console.log(localStorage.newMessage);
     document.getElementById("newMessage").value = localStorage.newMessage;
     $("#displayMessageButtons").hide();
 }
@@ -35,12 +32,14 @@ function submitAndBack() {
     save();
     var newMessage = localStorage.newMessage
     var messages = localStorage.messages
-    if (messages != "") {
+    if (localStorage.messages && messages != "") {
         messages = messages.substring(1, messages.length - 1)
     }
     if (newMessage != "") {
-        if (localStorage.messages != "") {
+        if (localStorage.messages && localStorage.messages != "") {
             messages = messages.concat(",")
+        } else {
+            messages = ""
         }
         messages = messages.concat(JSON.stringify({
             text : newMessage,
@@ -51,7 +50,7 @@ function submitAndBack() {
         localStorage.messages = "[" + messages + "]"
         localStorage.newMessage = ""
     }
-    console.log(localStorage.newMessage)
+
     document.getElementById("newMessage").value = "";
     $("#addMessage").hide();
     $("#displayMessage").show();
@@ -70,9 +69,6 @@ function updateCounter() {
 $(document).ready(function(){
     $('#addButton').click(function(){
        addThought();
-    });
-    $('#saveButton').click(function(){
-       save();
     });
     $('#submitAndBackButton').click(function(){
        submitAndBack();
