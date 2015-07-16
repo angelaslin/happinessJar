@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>Happiness Jar</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        width: 300px;
+        float: left;
+        background-color: #FFFFCB;
+        height: auto;
+        border: none;
+      }
+
+      #newMessage {
+        width: 100%;
+        height: 200px;
+      }
+
+      #icon {
+        width:14%;
+        float: right;
+      }
+
+      .textAndButtons {
+        float: left;
+        width: 80%;
+      }
+
+      #addMessage{
+        display: none;
+      }
+
+      button {
+        background-color: #C2FFFF;
+        /*color: #000066;*/
+        color: #0063A6;
+        border-radius: 6px;
+        border-style: solid;
+        border-color: #0063A6;
+        vertical-align: -webkit-baseline-middle;
+      }
+      button:hover {
+        background-color: #A7FFFF;
+      }
+      #refresh {
+        width: 15px;
+      }
+
+      #instructions {
+        color:#0063A6;
+        font-weight: bold;
+      }
+
+      #message {
+        color: #0063A6;
+      }
+
+    </style>
+
+    <script src="jquery-2.1.4.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="textAndButtons">
+      <div id="displayMessage">
+      
+        <div id="message"></div>
+        <div id="displayMessageButtons">
+          <button id="addButton">Add a happy thought</button>
+          <button id="refreshButton"><img id="refresh" src="refresh.png" title="Click for a random happy thought"/></button>
+        </div>
+      </div>
+        <div id="addMessage">
+          <div id="instructions">Add your new happy thought below!</div>
+          <textarea id="newMessage"></textarea>
+
+          <button id="saveButton">Save</button>
+          <button id="submitAndBackButton">Submit and Close</button>
+        </div>      
+    </div>
+    <img id="icon" src="icon.png" />
+  </body>
+</html>
